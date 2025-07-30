@@ -16,7 +16,7 @@ The system allows an Admin to define data models (pages), their fields, validati
 <img width="1901" height="903" alt="Screenshot 2025-07-30 161306" src="https://github.com/user-attachments/assets/42d42dea-b42c-4068-80a2-2bceb2a996e2" />
 
 ### Admin Can Create New Fields and add validation
-<img width="1910" height="906" alt="Screenshot 2025-07-30 160510" src="https://github.com/user-attachments/assets/1fb46031-8046-42fe-8a84-919e86392942" />
+<img width="1913" height="904" alt="Screenshot 2025-07-30 161855" src="https://github.com/user-attachments/assets/58c61c89-cd4a-4884-ad25-b7c0ec670387" />
 
 ### User can see all the fields and User also access to add, edit, delete, view item 
 <img width="1893" height="897" alt="Screenshot 2025-07-30 160310" src="https://github.com/user-attachments/assets/dfb21cff-98b2-4d79-bae8-3383d6290a2f" />
