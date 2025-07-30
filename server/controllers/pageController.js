@@ -41,14 +41,37 @@ exports.createPage = async (req, res, next) => {
 // @route   PUT /api/pages/:id
 exports.updatePage = async (req, res, next) => {
   try {
-    const page = await Page.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const page = await Page.findById(req.params.id);
     if (!page) {
       return res.status(404).json({ success: false, error: 'Page not found' });
     }
-    res.status(200).json({ success: true, data: page });
+
+    // *** THIS IS THE NEW FEATURE LOGIC ***
+    // Check if the table_name has changed.
+    const oldTableName = page.table_name;
+    const newTableName = req.body.table_name;
+
+    if (oldTableName && newTableName && oldTableName !== newTableName) {
+      // Rename the corresponding MongoDB collection.
+      try {
+        await mongoose.connection.db.collection(oldTableName).rename(newTableName);
+        console.log(`Successfully renamed collection from ${oldTableName} to ${newTableName}`);
+      } catch (renameErr) {
+        // If the old collection doesn't exist, we can ignore the error.
+        if (renameErr.codeName !== 'NamespaceNotFound') {
+            console.error('Error renaming collection:', renameErr);
+            return res.status(500).json({ success: false, error: 'Failed to rename database table.' });
+        }
+      }
+    }
+
+    // Now, update the page configuration document itself.
+    const updatedPage = await Page.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    
+    res.status(200).json({ success: true, data: updatedPage });
   } catch (err) {
     res.status(400).json({ success: false, error: err.message });
   }
@@ -63,7 +86,6 @@ exports.deletePage = async (req, res, next) => {
       return res.status(404).json({ success: false, error: 'Page not found' });
     }
 
-    // Drop the associated collection
     const collectionName = page.table_name;
     if (mongoose.connection.collections[collectionName]) {
       await mongoose.connection.collections[collectionName].drop();

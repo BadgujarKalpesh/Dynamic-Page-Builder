@@ -145,6 +145,13 @@ body {
   margin-top: 0.25rem;
 }
 
+.page-header-edit .grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+
 /* --- Add these new styles to the bottom of your App.css file --- */
 
 /* --- Page Header Editing --- */
