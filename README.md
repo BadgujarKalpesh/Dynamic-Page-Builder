@@ -4,6 +4,26 @@ This is a full-stack web application built with the MERN (MongoDB, Express.js, R
 
 The system allows an Admin to define data models (pages), their fields, validation rules, and UI properties. These configurations instantly generate fully functional interfaces with forms, data tables, search, and statistics, which are then available to both Admin and User roles.
 
+## Screenshot of project
+
+### Admin Page creation 
+<img width="1913" height="959" alt="Screenshot 2025-07-30 155713" src="https://github.com/user-attachments/assets/4545ec04-f1ad-4e9f-850f-d4b350ff7568" />
+
+### Admin and User switch button
+<img width="334" height="344" alt="Screenshot 2025-07-30 155731" src="https://github.com/user-attachments/assets/0ecb0dd6-91f1-4411-b355-b16db7c0ef47" />
+
+### Admin can create fields 
+<img width="1910" height="906" alt="Screenshot 2025-07-30 160510" src="https://github.com/user-attachments/assets/1fb46031-8046-42fe-8a84-919e86392942" />
+
+### User can see all the fields and he can add also
+<img width="1893" height="897" alt="Screenshot 2025-07-30 160310" src="https://github.com/user-attachments/assets/dfb21cff-98b2-4d79-bae8-3383d6290a2f" />
+
+### New Item add button
+<img width="1919" height="908" alt="Screenshot 2025-07-30 160323" src="https://github.com/user-attachments/assets/c0c1ba33-29bd-4fa1-8865-3a7058ae5371" />
+
+
+
+
 # Features Explained
 
 This project is a complete implementation of the dynamic page builder concept, with a focus on providing extensive control to the administrator.
