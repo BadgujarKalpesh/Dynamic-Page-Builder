@@ -29,14 +29,11 @@ This is the core of the application. Admins can visually build the data schema f
 
   * **Add/Remove Fields**: Add or remove any number of fields to a page's structure at any time.
   * **Multiple Field Types**: The system supports a wide range of data types, including text, textarea, number, date, email, and checkbox.
-  * **Database Indexing**: For performance, Admins can mark a field to be indexed in the database.
   * **UI Behavior Toggles**: Admins can specify if a field should be required, used for searching, or included in statistical calculations.
 
 ### 4\. Advanced Validation & Customization (Admin)
 
 Admins can enforce strict data quality and customize the user experience.
-
-  * **Validation Rules**: A simple JSON editor allows Admins to define advanced validation rules like minimum/maximum length for text, min/max values for numbers, and even custom regular expressions.
   * **UI Helpers**: Set placeholder text and descriptive tooltips for each field to guide users.
 
 ### 5\. Dynamic UI for All Users
@@ -62,18 +59,7 @@ This project is built using the MERN stack and other modern web technologies.
 
   * **React.js**: For building the client-side user interface.
   * **React Router**: For handling navigation and routing.
-  * **Axios**: For making API requests to the backend.
-  * **Lucide React & react-toastify**: For icons and notifications.
 
-# Setup and Installation
-
-Follow these steps to run the project on your local machine.
-
-### Prerequisites
-
-  * Node.js (v14 or later)
-  * npm (Node Package Manager)
-  * MongoDB (running locally or a connection string from a service like MongoDB Atlas)
 
 ### 1\. Backend Setup
 
