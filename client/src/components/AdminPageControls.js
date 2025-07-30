@@ -71,10 +71,10 @@ const AdminPageControls = ({ pageConfig, setPageConfig }) => {
     const [isEditing, setIsEditing] = useState(false);
     
     // State for page properties
-    const [pageDetails, setPageDetails] = useState({
-        page_name: '',
-        page_description: ''
-    });
+    // const [pageDetails, setPageDetails] = useState({
+    //     page_name: '',
+    //     page_description: ''
+    // });
     
     // State for the fields array
     const [fields, setFields] = useState([]);
@@ -83,21 +83,6 @@ const AdminPageControls = ({ pageConfig, setPageConfig }) => {
     const navigate = useNavigate();
 
     // When editing starts, populate the local state from the main pageConfig prop
-    useEffect(() => {
-        if (pageConfig) {
-            setPageDetails({
-                page_name: pageConfig.page_name,
-                page_description: pageConfig.page_description
-            });
-            setFields(pageConfig.fields);
-        }
-    }, [pageConfig]);
-
-    const handlePageDetailChange = (e) => {
-        const { name, value } = e.target;
-        setPageDetails(prev => ({ ...prev, [name]: value }));
-    };
-
     const handleAddField = () => {
         setFields(prev => [...prev, { id: `temp_${Date.now()}`, field_name: '', field_label: '', field_type: 'text' }]);
     };
@@ -133,8 +118,6 @@ const AdminPageControls = ({ pageConfig, setPageConfig }) => {
 
         // Create the final payload with updated page details and fields
         const payload = {
-            ...pageConfig,
-            ...pageDetails,
             fields: cleanedFields
         };
 
@@ -174,30 +157,6 @@ const AdminPageControls = ({ pageConfig, setPageConfig }) => {
             </div>
             {isEditing && (
                 <div className="admin-controls-body">
-                    {/* Page Properties Editor */}
-                    <div className="page-details-editor">
-                        <h4>Page Properties</h4>
-                        <div className="form-group">
-                            <label>Page Name</label>
-                            <input
-                                name="page_name"
-                                value={pageDetails.page_name}
-                                onChange={handlePageDetailChange}
-                                className="form-input"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Page Description</label>
-                            <textarea
-                                name="page_description"
-                                value={pageDetails.page_description}
-                                onChange={handlePageDetailChange}
-                                className="form-textarea"
-                                rows="3"
-                            />
-                        </div>
-                    </div>
-
                     {/* Fields Editor */}
                     <h4 className="fields-header">Fields</h4>
                     {fields.map((field, index) => (
