@@ -1,15 +1,13 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SlidersHorizontal, Trash2, Plus, Save, ChevronDown, ChevronRight } from 'lucide-react';
 import * as api from '../api/api';
 import { toast } from 'react-toastify';
 import { AppContext } from '../context/AppContext';
 
-// This is a sub-component for editing a single field's properties
-const FieldEditor = ({ field, index, onFieldChange, onRemoveField, pages, pageConfig }) => {
+
+const FieldEditor = ({ field, index, onFieldChange, onRemoveField }) => {
     const [advancedVisible, setAdvancedVisible] = useState(false);
-    const isIndexCheckboxDisabled = field._id && field.is_indexed;
-    // let validationRulesString = field.validation_rules ? JSON.stringify(field.validation_rules, null, 2) : "{}";
 
     return (
         <div className="field-editor-card">
@@ -41,7 +39,9 @@ const FieldEditor = ({ field, index, onFieldChange, onRemoveField, pages, pageCo
             <div className="checkbox-grid">
                 <label><input type="checkbox" checked={!!field.is_required} onChange={e => onFieldChange(index, 'is_required', e.target.checked)} /> Required</label>
                 <label><input type="checkbox" checked={!!field.is_used_for_search} onChange={e => onFieldChange(index, 'is_used_for_search', e.target.checked)} /> Searchable</label>
-                <label><input type="checkbox" checked={!!field.is_used_for_stats} onChange={e => onFieldChange(index, 'is_used_for_stats', e.target.checked)} /> Use in Stats</label>            </div>
+                <label><input type="checkbox" checked={!!field.is_used_for_stats} onChange={e => onFieldChange(index, 'is_used_for_stats', e.target.checked)} /> Use in Stats</label>            
+            </div>
+
             <div style={{marginTop: '0.75rem'}}>
                 <button onClick={() => setAdvancedVisible(!advancedVisible)} className="btn-link flex items-center" style={{fontSize: '0.875rem'}}>
                     {advancedVisible ? <ChevronDown size={16} className="mr-1"/> : <ChevronRight size={16} className="mr-1"/>}
@@ -69,12 +69,6 @@ const FieldEditor = ({ field, index, onFieldChange, onRemoveField, pages, pageCo
 // Main Component
 const AdminPageControls = ({ pageConfig, setPageConfig }) => {
     const [isEditing, setIsEditing] = useState(false);
-    
-    // State for page properties
-    // const [pageDetails, setPageDetails] = useState({
-    //     page_name: '',
-    //     page_description: ''
-    // });
     
     // State for the fields array
     const [fields, setFields] = useState([]);

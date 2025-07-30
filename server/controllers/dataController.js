@@ -64,8 +64,8 @@ const getModelForTable = async (req, res, next) => {
     }
 };
 
-// @desc    Get all data from a dynamic table with pagination
-// @route   GET /api/data/:tableName
+// desc    Get all data from a dynamic table with pagination
+// route   GET /api/data/:tableName
 exports.getData = [getModelForTable, async (req, res) => {
     const page = parseInt(req.query.page, 10) || 1;
     const limit = parseInt(req.query.limit, 10) || 10;
@@ -91,8 +91,8 @@ exports.getData = [getModelForTable, async (req, res) => {
     }
 }];
 
-// @desc    Get single data item
-// @route   GET /api/data/:tableName/:id
+// desc    Get single data item
+// route   GET /api/data/:tableName/:id
 exports.getDatum = [getModelForTable, async (req, res) => {
     try {
         const item = await req.model.findById(req.params.id);
@@ -106,8 +106,8 @@ exports.getDatum = [getModelForTable, async (req, res) => {
 }];
 
 
-// @desc    Create data in a dynamic table
-// @route   POST /api/data/:tableName
+// desc    Create data in a dynamic table
+// route   POST /api/data/:tableName
 exports.createData = [getModelForTable, async (req, res) => {
     try {
         validateData(req.pageConfig.fields, req.body);
@@ -118,8 +118,8 @@ exports.createData = [getModelForTable, async (req, res) => {
     }
 }];
 
-// @desc    Update data in a dynamic table
-// @route   PUT /api/data/:tableName/:id
+// desc    Update data in a dynamic table
+// route   PUT /api/data/:tableName/:id
 exports.updateData = [getModelForTable, async (req, res) => {
     try {
         validateData(req.pageConfig.fields, req.body);
@@ -136,8 +136,8 @@ exports.updateData = [getModelForTable, async (req, res) => {
     }
 }];
 
-// @desc    Delete data from a dynamic table
-// @route   DELETE /api/data/:tableName/:id
+// desc    Delete data from a dynamic table
+// route   DELETE /api/data/:tableName/:id
 exports.deleteData = [getModelForTable, async (req, res) => {
     try {
         const item = await req.model.findById(req.params.id);
