@@ -12,7 +12,7 @@ The system allows an Admin to define data models (pages), their fields, validati
 ### Admin and User switch button
 <img width="334" height="344" alt="Screenshot 2025-07-30 155731" src="https://github.com/user-attachments/assets/0ecb0dd6-91f1-4411-b355-b16db7c0ef47" />
 
-### Admin Can Edit Page Name,Page Description, Route, Table Name. 
+### Admin Can Edit Page Name, Page Description, Route, Table Name. 
 <img width="1901" height="903" alt="Screenshot 2025-07-30 161306" src="https://github.com/user-attachments/assets/42d42dea-b42c-4068-80a2-2bceb2a996e2" />
 
 ### Admin can create fields and add validation also
